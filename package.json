@@ -1,0 +1,17 @@
+{
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.3.2",
+    "@types/node": "^17.0.23",
+    "cucumber-html-reporter": "^5.5.0",
+    "playwright": "^1.20.2",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.3"
+  },
+  "scripts": {
+    "prtest_old": "cucumber-js features/**/*.feature --require-module ts-node/register --require test.setup.ts --require steps/**/*.ts",
+    "pretest": "del /s /q trace\\*.* || rm trace/* || echo 0",
+    "test":"cucumber-js features/**/*.feature -f json:report/cucumber_report.json --require-module ts-node/register --require test.setup.ts --require steps/**/*.ts || echo 0" ,
+    "posttest": "node report/index.js"
+    
+  }
+}
